@@ -6,9 +6,8 @@ const infoTime = document.querySelector(".time");
 const mainCTX = mainCanvas.getContext("2d");
 const nextCtx = nextCanvas.getContext("2d");
 
-// lines, pause, sound, levels and score,
 mainCTX.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
-//constants
+
 const COLS = 10;
 const ROWS = 20;
 const BLOCK_SIZE = 30;
@@ -88,21 +87,18 @@ class Board {
         this.updateLevel(elapsedTime);
 
         if (!isValid) {
-            //save board
             this.freeze(this.piece);
-            // get new pieces
+            // nueva pieza
             this.piece.shape = this.next;
             this.piece.y = 0;
             this.piece.x = 3;
             this.next = getShape();
-            //remove lines
+            //elimina las lineas
         }
         else {
-            this.piece.y = p.y; // commit movement
+            this.piece.y = p.y; 
         }
-        // but before remove lines
         this.removeLines();
-        // check if overflow
         if (this.grid[0].some((num) => num !== 0)) {
             // game over
             this.gameOver = true;
@@ -214,29 +210,22 @@ class Board {
     updateLevel(elapsedTime) {
         // Cambiar el nivel cada 3 minutos
         const levelChangeInterval = 300000;
-    
         const currentLevel = Math.floor(elapsedTime / levelChangeInterval);
-    
-        // Limitar el nivel máximo a 8
         const maxLevel = 8;
         time.currentLevel = Math.min(currentLevel, maxLevel);
     
         // Verificar si el nuevo nivel es mayor que el máximo
         if (time.currentLevel < Object.keys(LEVELS).length) {
-            // Actualizar el tiempo del nuevo nivel
             time.level = LEVELS[time.currentLevel];
         }
-    
-        // Mostrar "0" si el resultado no es un número
         const displayLevel = isNaN(time.currentLevel) ? 0 : time.currentLevel;
-    
-        // Actualizar el elemento en el DOM con el nivel
+
         document.getElementById('levelDisplay').innerText = `Level Speed: ${displayLevel}`;
     }
     
     
-} // Board
-// auxiliar functions
+}
+
 const moves = {
     ArrowLeft: (p) => (Object.assign(Object.assign({}, p), { x: p.x - 1 })),
     ArrowRight: (p) => (Object.assign(Object.assign({}, p), { x: p.x + 1 })),
@@ -252,7 +241,6 @@ const moves = {
             }
         }
         piece.shape.forEach((row) => row.reverse());
-        //piece.shape.reverse(); // counterClockwise
         return piece;
     }
 };
@@ -306,9 +294,9 @@ function getShape() {
     ];
     return shapes[Math.floor(Math.random() * shapes.length)];
 }
-// instances
+
 const board = new Board(mainCTX, nextCtx);
-// animation
+
 const animate = (now = 0) => {
     time.elapsed = now - time.start;
 
@@ -316,7 +304,7 @@ const animate = (now = 0) => {
         time.start = now;
         board.draw();
         
-        // GAMEOVER?
+        // GAMEOVER
         if (board.gameOver) {
             handleGameOver();
             return cancelAnimationFrame(animationFrame);
@@ -330,7 +318,6 @@ const animate = (now = 0) => {
 addEventListener("keydown", (event) => {
     // Verificar si el juego está en curso antes de procesar las teclas
     if (board.isGameRunning) {
-        // new state
         const getNextState = moves[event.key];
         if (!getNextState)
             return;
@@ -383,7 +370,6 @@ const finalScoreDisplay = document.getElementById('finalScore');
 const restartButton = document.getElementById('restartButton');
 
 function handleGameOver() {
-  // Muestra el overlay
   gameOverOverlay.style.display = 'block';
 
   // Actualiza la puntuación final
