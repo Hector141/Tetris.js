@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  font-family: "Press Start 2P";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(4, 4, 173, 0.644);
+ overflow: hidden;
+
+}
+
+
+#gameOverOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#gameOverOverlay h1 {
+  font-size: 2em;
+  margin-top: 300px;
+}
+
+#gameOverOverlay p {
+  font-size: 1.2em;
+}
+
+#gameOverOverlay button {
+  font-family: "Press Start 2P";
+  font-size: 1.5em;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+
+.info {
+  max-width: 250px;
+  margin-right: 20px;
+}
+#main {
+  border: 2px solid;
+  border-radius: 9px;
+}
+
+.tetris-cont{
+  display: flex;
+}
+
+.logo-cont{
+  position: relative;
+  display: flex;
+      width: 100%;
+      height: 150px;
+      justify-content: center;
+      align-items: center;
+      
+}
+
+.tetris-logo {
+  width: 600px;
+  height: 150px;
+}
+
+.pieza{
+  margin-left: 27px;
+  margin-top: 50px;
+}
+
+
+.next-piece p{
+  text-align: center;
+}
+
+.next-piece{
+  position: relative;
+  width: 200px; 
+  height: 200px; 
+  margin-right: 10px;
+  border: 5px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.next-piece::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background-color: #C9D0D0;
+  z-index: -1;
+}
+
+
+.button {
+  margin-left: 220px;
+  margin-top: 20px;
+  font-family: "Press Start 2P";
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#startButton:hover {
+  background-color: #4CAF50; 
+  color: white; 
+}
+
+
+#startButton { 
+  z-index: 1000;
+  background-color: #008CBA;
+  color: white; 
+}
