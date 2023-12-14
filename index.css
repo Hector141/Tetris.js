@@ -153,3 +153,13 @@ body {
     height: 430px;
   }
 }
+
+@media screen and (max-height: 650px) {
+  .tetris-logo {
+    width: 400px;
+    height: 100px;
+  }
+  #main{
+    height: 420px;
+  }
+}
