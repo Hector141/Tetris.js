@@ -131,3 +131,25 @@ body {
   background-color: #008CBA;
   color: white; 
 }
+
+@media screen and (max-width: 1364px) {
+
+  .tetris-logo {
+    width: 400px;
+    height: 100px;
+  }
+  #main{
+    height: 480px;
+  }
+}
+
+@media screen and (max-width: 1081px) {
+
+  .tetris-logo {
+    width: 400px;
+    height: 100px;
+  }
+  #main{
+    height: 430px;
+  }
+}
