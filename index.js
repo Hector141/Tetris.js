@@ -209,7 +209,7 @@ class Board {
     }
     updateLevel(elapsedTime) {
         // Cambiar el nivel cada 3 minutos
-        const levelChangeInterval = 300000;
+        const levelChangeInterval = 180000;
         const currentLevel = Math.floor(elapsedTime / levelChangeInterval);
         const maxLevel = 8;
         time.currentLevel = Math.min(currentLevel, maxLevel);
