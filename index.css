@@ -6,7 +6,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(4, 4, 173, 0.644);
- overflow: auto;
+ overflow: hidden;
 
 }
 
