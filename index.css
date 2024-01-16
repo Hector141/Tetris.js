@@ -105,8 +105,8 @@ body {
 
 
 .button {
-  margin-left: 240px;
-  margin-top: 100px;
+  margin-left: 220px;
+  margin-top: 20px;
   font-family: "Press Start 2P";
   display: inline-block;
   padding: 10px 20px;
@@ -130,8 +130,6 @@ body {
   z-index: 1000;
   background-color: #008CBA;
   color: white; 
-  position: absolute;
-  
 }
 
 @media screen and (max-width: 1364px) {
